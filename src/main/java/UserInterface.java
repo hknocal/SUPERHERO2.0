@@ -42,7 +42,7 @@ public class UserInterface {
                     editSuperheroes();
                     break;
                 case 7:
-                    //
+                    sortByTwoCriteria();
                     break;
                 case 8:
                     controller.saveToDB();
@@ -64,9 +64,7 @@ public class UserInterface {
                 1. Sort by name.
                 2. Sort by height.
                 3. Sort by powers.
-                4. Sort by weakness.
-                5. Sort by true/false
-             
+                4. Sort by weakness.             
                 """);
 
         switch (readInt()) {
@@ -75,35 +73,36 @@ public class UserInterface {
                 ArrayList<Superhero> sortedByName = controller.database.heroList;
                 Comparator<Superhero> nameComparator = new NameComparator();
                 Collections.sort(sortedByName, nameComparator);
-                System.out.println(sortedByName);
+                for (Superhero s: sortedByName){
+                    System.out.println(s.toString());
+                }
                 break;
             case 2:
                 System.out.println("Sorted by height");
                 ArrayList<Superhero> sortedByHeight = controller.database.heroList;
                 Comparator<Superhero> heightComparator = new HeightComparator();
                 Collections.sort(sortedByHeight, heightComparator);
-                System.out.println(sortedByHeight);
+                for (Superhero s: sortedByHeight) {
+                    System.out.println(s.toString());
+                }
                 break;
             case 3:
                 System.out.println("Sorted by power(s)");
                 ArrayList<Superhero> sortedByPower = controller.database.heroList;
                 Comparator<Superhero> powerComparator = new PowerComparator();
                 Collections.sort(sortedByPower, powerComparator);
-                System.out.println(sortedByPower);
+                for (Superhero s: sortedByPower){
+                    System.out.println(s.toString());
+                }
                 break;
             case 4:
                 System.out.println("Sorted by weakness(ess)");
                 ArrayList<Superhero> sortedByWeakness = controller.database.heroList;
                 Comparator<Superhero> weaknessComparator = new WeaknessComparator();
                 Collections.sort(sortedByWeakness, weaknessComparator);
-                System.out.println(sortedByWeakness);
-                break;
-            case 5:
-                System.out.println("Sorted by origin FROM earth.");
-                ArrayList<Superhero> sortedByHumanOrNot = controller.database.heroList;
-                Comparator<Superhero> humanOrNotComparator = new HumanOrNotComparatorFalse();
-                Collections.sort(sortedByHumanOrNot, humanOrNotComparator);
-                System.out.println(sortedByHumanOrNot);
+                for (Superhero s : sortedByWeakness){
+                    System.out.println(s.toString());
+                }
                 break;
             default:
                 System.out.println("Wrong input, please enter one of the correct number");
@@ -111,6 +110,67 @@ public class UserInterface {
         }
     }
 
+    public void sortByTwoCriteria() {
+
+        Comparator<Superhero> comparatorOne = null;
+        Comparator<Superhero> comparatorTwo = null;
+
+        System.out.println("""
+                Enter first criteria, then press ENTER.                 
+                1. Name.
+                2. Height.
+                3. Power(s).
+                4. Weakness(ess)
+                """);
+
+        switch (readInt()) {
+            case 1:
+                comparatorOne = new NameComparator();
+                break;
+            case 2:
+                comparatorOne = new HeightComparator();
+                break;
+            case 3:
+                comparatorOne = new PowerComparator();
+                break;
+            case 4:
+                comparatorOne = new WeaknessComparator();
+                break;
+        }
+
+        if (comparatorOne != null) {
+
+            System.out.println("Enter second criteria and press ENTER.");
+
+            switch (readInt()) {
+                case 1:
+                    comparatorTwo = new NameComparator();
+                    break;
+                case 2:
+                    comparatorTwo = new HeightComparator();
+                    break;
+                case 3:
+                    comparatorTwo = new PowerComparator();
+                    break;
+                case 4:
+                    comparatorTwo = new WeaknessComparator();
+                    break;
+
+            }
+        }
+
+
+        if (comparatorOne != null && comparatorTwo != null) {
+            Collections.sort(controller.database.getHeroList(), comparatorOne.thenComparing(comparatorTwo));
+        }
+
+        if (comparatorOne != null) {
+            Collections.sort(controller.database.getHeroList(), comparatorOne);
+        }
+        for (Superhero s : controller.database.getHeroList()) {
+            System.out.println(s.toString());
+        }
+    }
 
     public void addHeroToDatabase() {
 
@@ -174,7 +234,7 @@ public class UserInterface {
                 "\n2 search using height " +
                 "\n3 search using power(s)" +
                 "\n4 search using weakness(es)" +
-                "\n5 search using origin." );
+                "\n5 search using origin.");
         switch (readInt()) {
             case 1:
                 System.out.println("Type the name of the hero you wanna search for: ");
@@ -262,12 +322,9 @@ public class UserInterface {
             System.out.println("Edit data and press ENTER. If you do not wish to edit data enter 0 and press ENTER");
             System.out.println("Currently editing superhero height: " + editSuperhero.getSuperheroHeight());
             double superheroNewHeight = readDouble();
-            if (superheroNewHeight > 0)
-            {
+            if (superheroNewHeight > 0) {
                 editSuperhero.setSuperheroHeight(superheroNewHeight);
-            }
-            else if (superheroNewHeight == 0)
-            {
+            } else if (superheroNewHeight == 0) {
                 System.out.println("No changes made to height");
             }
 
@@ -293,8 +350,7 @@ public class UserInterface {
                 editSuperhero.setSuperheroHumanOrNot(false);
             } else if (superheroNewOrigin == 3) {
                 System.out.println("No changes to origin");
-            }
-            else {
+            } else {
                 System.out.println("Not a valid option. No changes to origin..");
             }
         } catch (IndexOutOfBoundsException e) {
@@ -318,6 +374,7 @@ public class UserInterface {
             System.out.println("No hero with associated number exist\n Returning to main menu.");
         }
     }
+
 
     private double readDouble() {
 
