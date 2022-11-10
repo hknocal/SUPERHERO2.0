@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bf7295a-8cd9-4b89-be20-b990fce2407f" name="Changes" comment="transfered code from old repo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
+    <list default="true" id="4bf7295a-8cd9-4b89-be20-b990fce2407f" name="Changes" comment="commiting final changes">
+      <change afterPath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/herolist.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/herolist.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RunManager">
@@ -57,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668079358403</updated>
-      <workItem from="1668079359704" duration="7389000" />
+      <workItem from="1668079359704" duration="7967000" />
     </task>
     <task id="LOCAL-00001" summary="transfered code from old repo">
       <created>1668085301085</created>
@@ -66,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668085301085</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commiting final changes">
+      <created>1668089380427</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668089380427</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,6 +95,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="transfered code from old repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="transfered code from old repo" />
+    <MESSAGE value="commiting final changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="commiting final changes" />
   </component>
 </project>
