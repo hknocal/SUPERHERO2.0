@@ -61,14 +61,13 @@ public class Superhero {
         return superheroHumanOrNot;
     }
 
-    //ToString to output text from databse in correct form.
+
     public String toString() {
-        return "\nSuperhero name: " + superheroName +
-                "\nSuperhero height: " + superheroHeight +
-                "\nSuperhero power(s): " + superheroPower +
-                "\nSuperhero weakness(s): " + superheroWeakness +
-                "\nSuperhero origin from planet earth: " + superheroHumanOrNot +
-                "\n";
+        return "Superhero name: " + superheroName +
+                " Superhero height: " + superheroHeight +
+                " Superhero power(s): " + superheroPower +
+                " Superhero weakness(s): " + superheroWeakness +
+                " Superhero origin from planet earth: " + superheroHumanOrNot + "\n";
 
     }
 
