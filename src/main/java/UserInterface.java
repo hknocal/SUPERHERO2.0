@@ -21,6 +21,7 @@ public class UserInterface {
                     7. Search for superhero using two parameters.
                     8. Save 
                     9. Exit
+                    test
                     """);
             switch (readInt()) {
                 case 1:
